@@ -13,10 +13,10 @@ const projects = [
     link: "https://github.com/Janhavi078/Vehicle_Price_Prediction_Model"
   },
   {
-    title: "SMART_PDS_SYSTEM",
+    title: "Telhan-SATHI",
     tech: ["React", "Node.js", "Biometrics"],
-    desc: "Biometric fraud detection for public distribution systems (VOIS Hackathon).",
-    link: "#"
+    desc: "SIH winning project.",
+    link: "https://github.com/Janhavi078/telhan-sathi"
   },
   {
     title: "UNILEAP_PLATFORM",
