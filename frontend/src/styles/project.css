@@ -1,0 +1,95 @@
+.projects-page {
+  min-height: 100vh;
+  background: #020617;
+  padding-top: 100px;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.back-link {
+  color: #a855f7;
+  font-family: 'Space Mono', monospace;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.projects-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.project-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(34, 211, 238, 0.1);
+  padding: 35px;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.05);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.project-index {
+  font-family: 'Space Mono', monospace;
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.tech-tag {
+  font-size: 0.65rem;
+  background: rgba(34, 211, 238, 0.1);
+  color: #22d3ee;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-family: 'Space Mono', monospace;
+}
+
+.project-name {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.project-desc {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.view-project {
+  color: #22d3ee;
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}

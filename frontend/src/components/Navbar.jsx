@@ -1,52 +1,58 @@
-import { motion } from "framer-motion";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import "../styles/navbar.css";
+import"../pages/Project.jsx";
+import"../pages/Contact.jsx";
 
-export default function Navbar() {
-  const navLinks = ["Home", "Projects", "Skills", "Contact"];
+const Navbar = () => {
+  const location = useLocation();
+
+  // Helper function to check if the link is active
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 50px",
-        zIndex: 100,
-        background: "rgba(2, 6, 23, 0.7)",
-        backdropFilter: "blur(10px)",
-        borderBottom: "1px solid #1e293b"
-      }}
-    >
-      <div style={{ color: "#22d3ee", fontWeight: "bold", fontSize: "1.2rem", letterSpacing: "2px" }}>
-        JANHAVI.DEV
+    <nav className="navbar">
+      <div className="nav-container">
+        {/* Logo - Clicks back to Home */}
+        <Link to="/" className="nav-logo">
+          JANHAVI<span className="logo-dot">.</span>DEV
+        </Link>
+
+        <ul className="nav-links">
+          <li>
+            <Link 
+              to="/" 
+              className={`nav-item ${isActive('/') ? 'active' : ''}`}
+            >
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/Project" 
+              className={`nav-item ${isActive('/Project') ? 'active' : ''}`}
+            >
+              PROJECTS
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/contact" 
+              className={`nav-item ${isActive('/contact') ? 'active' : ''}`}
+            >
+              CONTACT
+            </Link>
+          </li>
+        </ul>
+
+        {/* System Status - Cyberpunk style indicator */}
+        <div className="nav-status">
+          <span className="status-dot"></span>
+          <span className="status-text">ONLINE</span>
+        </div>
       </div>
-      
-      <div style={{ display: "flex", gap: "30px" }}>
-        {navLinks.map((link) => (
-          <a 
-            key={link} 
-            href={`#${link.toLowerCase()}`}
-            style={{ 
-              color: "#94a3b8", 
-              textDecoration: "none", 
-              fontSize: "0.9rem",
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-              transition: "color 0.3s"
-            }}
-            onMouseOver={(e) => e.target.style.color = "#22d3ee"}
-            onMouseOut={(e) => e.target.style.color = "#94a3b8"}
-          >
-            {link}
-          </a>
-        ))}
-      </div>
-    </motion.nav>
+    </nav>
   );
-}
+};
+
+export default Navbar;
