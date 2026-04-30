@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -6,57 +5,43 @@ import Footer from '../components/Footer';
 import '../styles/project.css';
 
 const projects = [
-  {
-    title: "VEHICLE_PRICE_PREDICTION",
-    tech: ["MERN", "Machine Learning", "Python"],
-    desc: "A ML-powered model to predict vehicle prices based on historical data.",
-    link: "https://github.com/Janhavi078/Vehicle_Price_Prediction_Model"
-  },
-  {
-    title: "Telhan-SATHI",
-    tech: ["React", "Node.js", "Biometrics"],
-    desc: "SIH winning project.",
-    link: "https://github.com/Janhavi078/telhan-sathi"
-  },
-  {
-    title: "UNILEAP_PLATFORM",
-    tech: ["Open Source", "React", "Education"],
-    desc: "A study platform with free courses listed for students (Hacktoberfest).",
-    link: "https://github.com/janhavi078/unileap"
-  }
+  { title: "VEHICLE_PREDICTION", tech: "MERN/ML", link: "https://github.com/Janhavi078/Vehicle_Price_Prediction_Model" },
+  { title: "TELHAN_SATHI", tech: "React/IoT", link: "https://github.com/Janhavi078/Telhan-sathi01" },
+  { title: "LOG_ALERT_SYSTEM", tech: "Linux/Sec", link: "https://github.com/Janhavi078/-alert-detection-system-for-linux-logs" },
+  { title: "GRILLI_RESTAURANT", tech: "UI/UX", link: "https://github.com/Janhavi078/grilli-restraunt-website" },
+  { title: "UNILEAP_PLATFORM", tech: "React/OS", link: "https://github.com/janhavi078/unileap" },
+  { title: "RESPO_AI", tech: "MERN/AI", link: "https://github.com/Janhavi078/Respo.AI", isUpcoming: true }
 ];
 
 export default function Projects() {
   return (
-    <div className="projects-page">
+    <div className="projects-page compact-layout">
       <div className="projects-container">
         <header className="projects-header">
-          <Link to="/" className="back-link">← RETURN_HOME</Link>
-          <span className="section-label">Work /</span>
-          <h1 className="projects-title">SELECTED_ARTIFACTS</h1>
+          <Link to="/" className="back-link">← RET_HOME</Link>
+          <h1 className="projects-title">ARTIFACT_INDEX</h1>
         </header>
 
-        <div className="projects-grid">
+        <div className="compact-grid">
           {projects.map((project, index) => (
-            <motion.div 
-              className="project-card"
+            <motion.a 
+              href={project.link}
+              target="_blank"
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              className={`compact-card ${project.isUpcoming ? 'upcoming' : ''}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.05 }}
             >
-              <div className="card-header">
-                <span className="project-index">0{index + 1}</span>
-                <div className="tech-stack">
-                  {project.tech.map((t, i) => <span key={i} className="tech-tag">{t}</span>)}
-                </div>
+              <div className="card-top">
+                <span className="index">0{index + 1}</span>
+                <span className="tech">{project.tech}</span>
               </div>
-              <h3 className="project-name">{project.title}</h3>
-              <p className="project-desc">{project.desc}</p>
-              <a href={project.link} target="_blank" rel="noreferrer" className="view-project">
-                VIEW_SOURCE_CODE <span>→</span>
-              </a>
-            </motion.div>
+              <h3 className="name">{project.title}</h3>
+              <div className="status-line">
+                {project.isUpcoming ? "[ STAGED ]" : "[ DEPLOYED ]"}
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>
